@@ -1,1 +1,1 @@
-# Administrador de Paciente de Veterinaria - Frontend con React y Tailwind CSS
+# Administrador de Pacientes de Veterinaria - Frontend con React y Tailwind CSS
