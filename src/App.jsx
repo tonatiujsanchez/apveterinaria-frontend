@@ -7,8 +7,7 @@ import OlvidePassword from "./pages/OlvidePassword"
 import ConfirmarCuenta from "./pages/ConfirmarCuenta"
 
 
-function App() {
-
+const App = () => {
 
     return (
         <BrowserRouter>
@@ -17,7 +16,7 @@ function App() {
                     <Route index element={<Login />}/>
                     <Route path="registrar" element={<Registrar />}/>
                     <Route path="olvide-password" element={<OlvidePassword />}/>
-                    <Route path="confirmar/:id" element={<ConfirmarCuenta />}/>
+                    <Route path="confirmar-cuenta/:id" element={<ConfirmarCuenta />}/>
                 </Route>
 
             </Routes>
