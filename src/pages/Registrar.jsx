@@ -3,14 +3,13 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useForm } from '../hooks/useForm'
 import Alerta from '../components/Alerta'
-import axios from 'axios'
 import SpinnerButton from '../components/SpinnerButton'
-
+import clienteAxios from '../config/axios'
 
 
 const Registrar = () => {
 
-    const { valores, setOnchangeValores } = useForm({
+    const { valores, setOnchangeValores, resetarFormulario } = useForm({
         nombre: '',
         email: '',
         password: '',
@@ -58,10 +57,11 @@ const Registrar = () => {
 
         try {
 
-            const API_URL = 'http://localhost:4000/api/veterinarios' 
-            await axios.post(API_URL, veterinario)
+            const API_URL = '/veterinarios' 
+            await clienteAxios.post(API_URL, veterinario)
 
             setAlerta( {error: false, msg: 'Cuenta creada correctamente, revisa tu email'} )
+            resetarFormulario()
             setCargando(false)
         } catch (error) {
             const { data } = error.response
@@ -162,7 +162,7 @@ const Registrar = () => {
                     <Link
                         to="/olvide-password"
                         className='block my-5 text-center text-gray-500 hover:text-gray-800 hover:underline'>
-                        Olvide mi contraseña
+                        Olvidé mi contraseña
                     </Link>
                 </nav>
             </div>

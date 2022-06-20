@@ -4,10 +4,12 @@ import AuthLayout from "./layout/AuthLayout"
 import Login from "./pages/Login"
 import Registrar from "./pages/Registrar"
 import OlvidePassword from "./pages/OlvidePassword"
+import NuevoPassword from "./pages/NuevoPassword"
 import ConfirmarCuenta from "./pages/ConfirmarCuenta"
 
 
 const App = () => {
+
 
     return (
         <BrowserRouter>
@@ -16,6 +18,7 @@ const App = () => {
                     <Route index element={<Login />}/>
                     <Route path="registrar" element={<Registrar />}/>
                     <Route path="olvide-password" element={<OlvidePassword />}/>
+                    <Route path="olvide-password/:token" element={<NuevoPassword />}/>
                     <Route path="confirmar-cuenta/:id" element={<ConfirmarCuenta />}/>
                 </Route>
 

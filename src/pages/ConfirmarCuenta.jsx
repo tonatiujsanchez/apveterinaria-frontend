@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useParams, Link } from "react-router-dom"
 import axios from 'axios'
 import Alerta from "../components/Alerta"
+import clienteAxios from "../config/axios"
 
 
 const ConfirmarCuenta = () => {
@@ -12,8 +13,8 @@ const ConfirmarCuenta = () => {
     useEffect(() => {
         const confirmaCuenta = async () => {
             try {
-                const API_URL = `http://localhost:4000/api/veterinarios/confirmar/${id}`
-                const { data } = await axios(API_URL)
+                const API_URL = `/veterinarios/confirmar/${id}`
+                const { data } = await clienteAxios(API_URL)
                 setAlerta({ error: false, msg: data.msg })
                 console.log(data);
             } catch (error) {
@@ -39,12 +40,24 @@ const ConfirmarCuenta = () => {
                         </div>
                         {
                             !alerta.error
-                            && <Link
-                                to="/"
-                                className='block my-5 text-center text-gray-500 hover:text-gray-800 hover:underline'>
-                                Iniciar Sesión
-                            </Link>
-
+                                ? <Link
+                                    to="/"
+                                    className='block my-5 text-center text-gray-500 hover:text-gray-800 hover:underline'>
+                                    Iniciar Sesión
+                                </Link>
+                                :
+                                <nav className="mt-5 md:max-w-[500px] lg:flex lg:justify-between">
+                                    <Link
+                                        to="/"
+                                        className='block my-5 text-center text-gray-500 hover:text-gray-800 hover:underline'>
+                                        Iniciar Sesión
+                                    </Link>
+                                    <Link
+                                        to="/registrar"
+                                        className='block my-5 text-center text-gray-500 hover:text-gray-800 hover:underline'>
+                                        ¿No tienes cuenta? Regístrate
+                                    </Link>
+                                </nav>
                         }
                     </>
                 }

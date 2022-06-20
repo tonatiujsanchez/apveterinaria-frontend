@@ -50,7 +50,7 @@ const Login = () => {
                     <Link 
                         to="/olvide-password"
                         className='block my-5 text-center text-gray-500 hover:text-gray-800 hover:underline'>
-                            Olvide mi contraseña
+                            Olvidé mi contraseña
                     </Link>
                 </nav>
             </div>
